@@ -17,15 +17,30 @@
 
         <div class="form-group">
             <label for="">Title</label>
-            <input type="text" name="title" class="form-control">
+            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror">
+            @error('title')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Short description</label>
-            <textarea rows="5" name="description" class="form-control"></textarea>
+            <textarea rows="5" name="description" class="form-control @error('description') is-invalid @enderror"></textarea>
+            @error('description')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Text</label>
-            <textarea rows="5" name="text" class="form-control"></textarea>
+            <textarea rows="5" name="text" class="form-control @error('text') is-invalid @enderror"></textarea>
+            @error('text')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Images</label>

@@ -23,24 +23,24 @@ Route::get('/', function () {
     return  view('welcome');
 });
 
-Route::name("products.")->prefix("/products")->group(function () {
+Route::name("products.")->middleware("auth")->prefix("/products")->group(function () {
 
-    Route::get("/", [ProductsController::class ,"index"])->name("index")->middleware("auth");;
+    Route::get("/", [ProductsController::class ,"index"])->name("index");
 
     Route::get("/create", [ProductsController::class ,"create"])->name("create");
     Route::post("/create", [ProductsController::class ,"store"])->name("store");
 
     Route::get("/edit/{id}", [ProductsController::class ,"edit"])->name("edit");
-    Route::post("/edit/{id}", [ProductsController::class ,"update"]);
+    Route::post("/edit/{id}", [ProductsController::class ,"update"])->name("update");
 
-    Route::delete("/delete/{id}", [ProductsController::class, "delete"]);
-
-
-
-    Route::delete("/edit/delete/{id}", [ImagesController::class, "delete"]);
+    Route::delete("/delete/{id}", [ProductsController::class, "delete"])->name("delete");
 
 
-    Route::post("/search", [HomeController::class ,"searchWords"]);
+
+    Route::delete("/edit/delete/{id}", [ImagesController::class, "delete"])->name("delete");
+
+
+    Route::post("/search", [HomeController::class ,"searchWords"])->name("searchWords");
 
 
 });

@@ -40,15 +40,33 @@
 
         <div class="form-group">
             <label for="">Title</label>
-            <input type="text" name="title" class="form-control" value="{{ $product->title }}">
+            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ $product->title }}">
+
+            @error('title')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Description</label>
-            <textarea rows="10" name="description" class="form-control">{{ $product->description }}</textarea>
+            <textarea rows="10" name="description" class="form-control @error('description') is-invalid @enderror">{{ $product->description }}</textarea>
+
+            @error('description')
+            <span class="invalid-feedback " role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Text</label>
-            <textarea rows="10" name="text" class="form-control">{{ $product->text }}</textarea>
+            <textarea rows="10" name="text" class="form-control @error('text') is-invalid @enderror">{{ $product->text }}</textarea>
+
+            @error('text')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Images</label>
